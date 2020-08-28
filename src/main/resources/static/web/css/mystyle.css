@@ -18,13 +18,13 @@ body {
 
 .gridObjects {
   width: 500px;
-  height: 510px;
+  height: 460px;
   margin: 0 auto;
-  background-size: cover;
-  /* border: 5px solid green; */
+  background-size: contain;
+  border: 5px solid green;
 }
 
-.gridShips {  
+.gridShips {
   background-image: url(../img/backships.gif);
 }
 
@@ -34,26 +34,68 @@ body {
 
 .grid-stack-item-content {
   opacity: 0.9;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
-.carrierHor {  
+.carrierHor {
   background-image: url(../img/carrierhor.png);
+}
+
+.carrierVer {
+  background-image: url(../img/carrierver.png);
 }
 
 .submarineHor {
   background-image: url(../img/submarinehor.png);
 }
 
+.submarineVer {
+  background-image: url(../img/submarinever.png);
+}
+
 .battleshipHor {
   background-image: url(../img/battleshiphor.png);
+}
+
+.battleshipVer {
+  background-image: url(../img/battleshipver.png);
 }
 
 .destroyerHor {
   background-image: url(../img/destroyerhor.png);
 }
 
+.destroyerVer {
+  background-image: url(../img/destroyerver.png);
+}
+
 .patrolboatHor {
   background-image: url(../img/patrolboathor.png);
+}
+
+.patrolboatVer {
+  background-image: url(../img/patrolboatver.png);
+}
+
+/*
+  Clases de rotacion
+*/
+
+.rotatebutton {
+  background: none;
+  border: none;
+}
+
+.rotateicon {
+  width: 15px;
+  height: 15px;
+}
+
+#errorMsg {
+  display: none;
+}
+
+.textCenter {
+  text-align: center;
 }
