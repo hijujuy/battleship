@@ -1,0 +1,59 @@
+/*
+* Etiquetas html
+
+.fondo-grid {
+  border: 5px solid blue;
+}
+*/
+body {
+  background: url(../img/back2.jpg);
+  font-family: 'Dosis', sans-serif;
+}
+
+.blockInline {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 8px;
+}
+
+.gridObjects {
+  width: 500px;
+  height: 510px;
+  margin: 0 auto;
+  background-size: cover;
+  /* border: 5px solid green; */
+}
+
+.gridShips {  
+  background-image: url(../img/backships.gif);
+}
+
+.gridPlacement {
+  background-image: url(../img/backshipplacement.gif);
+}
+
+.grid-stack-item-content {
+  opacity: 0.9;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.carrierHor {  
+  background-image: url(../img/carrierhor.png);
+}
+
+.submarineHor {
+  background-image: url(../img/submarinehor.png);
+}
+
+.battleshipHor {
+  background-image: url(../img/battleshiphor.png);
+}
+
+.destroyerHor {
+  background-image: url(../img/destroyerhor.png);
+}
+
+.patrolboatHor {
+  background-image: url(../img/patrolboathor.png);
+}
