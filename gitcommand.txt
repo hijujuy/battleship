@@ -11,3 +11,7 @@ git branch
 git branch nombre_nueva_rama
 
 git checkout nombre_rama
+
+git checkout -b nombre_nueva_rama
+
+git merge rama_fusionar -m "mensaje"
