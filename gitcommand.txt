@@ -1,0 +1,13 @@
+git clone link_repositorio
+
+git status
+
+git add .
+
+git commit -m "mensaje"
+
+git branch
+
+git branch nombre_nueva_rama
+
+git checkout nombre_rama
