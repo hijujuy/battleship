@@ -16,11 +16,30 @@
 
 <body>
     <div class="container-fluid">
-      <div id="errorMsg" class="alert alert-danger textCenter "></div>
+      <div id="errorMsg" class="alert alert-danger"></div>
 
-      <div class="">
-        <div class="gridObjects gridPlacement">
-          <div class="grid-stack grid-stack-10">
+      <div id="positioningScreen">
+        <div class="blockInline">
+          <div class="gridObjects gridPlacement">
+            <div class="grid-stack grid-stack-10">
+            </div>
+          </div>
+        </div>
+        <div class="blockPositions">
+          <div class="shipTypeLabel">
+            CARRIER <span class="shipPositionLabel" id="carrierPosition"></span>
+          </div>
+          <div class="shipTypeLabel">
+            BATTLESHIP <span class="shipPositionLabel" id="battleshipPosition"></span>
+          </div>
+          <div class="shipTypeLabel">
+            DESTROYER <span class="shipPositionLabel" id="destroyerPosition"></span>
+          </div>
+          <div class="shipTypeLabel">
+            SUBMARINE <span class="shipPositionLabel" id="submarinePosition"></span>
+          </div>
+          <div class="shipTypeLabel">
+            PATROLBOAT <span class="shipPositionLabel" id="patrolboatPosition"></span>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ body {
   height: 460px;
   margin: 0 auto;
   background-size: contain;
-  border: 5px solid green;
+  /* border: 5px solid green; */
 }
 
 .gridShips {
@@ -98,4 +98,32 @@ body {
 
 .textCenter {
   text-align: center;
+}
+
+/*
+  Pantalla de posicionamiento inicial
+*/
+#positioningScreen {
+  /* display: none; */
+  background: #000000ad;
+  width: 80%;
+  margin-top: 40px;
+  margin-left: 15px;
+  padding: 10px;
+  border-radius: 1%;
+}
+
+.blockPositions {
+  display: inline-block;
+  color: aliceblue;
+  vertical-align: top;
+  margin-top: 10%;
+}
+
+.shipPositionLabel {
+  color: goldenrod;
+}
+
+.dragNode {
+  color: blue;
 }

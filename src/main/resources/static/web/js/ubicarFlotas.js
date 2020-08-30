@@ -3,15 +3,17 @@ var battleship = "battleship";
 var destroyer = "destroyer";
 var submarine = "submarine";
 var patrolboat = "patrolboat";
+
 var myGrid;
+var shipsJson;
 
 $(function() {
     var options = {
         disableOneColumnMode: true,
         removeTimeout: 100,
         float: true,
-        width: 10,
-        height: 10,
+        column: 10,
+        maxRow: 10,
         disableResize: true,
         cellHeight: 45,
         verticalMargin: 0
@@ -74,6 +76,13 @@ $(function() {
 
     items.forEach(function(mywidget){
         myGrid.addWidget(mywidget.el, mywidget);
+        showPosition(mywidget);
+    });
+
+    //Manejo de evento change sobre la grid
+    myGrid.on('change', function(event, items){
+        items.forEach(function(item){
+            showPosition(item)});
     });
 
 });
@@ -102,4 +111,67 @@ function rotate(ship){
         $('#errorMsg').show( "slow" ).delay(2000).hide( "slow" );
     }
 
+}
+
+function saveGrid() {
+    let nodos = [];
+    //nodes arreglo de nodos en la grilla
+    myGrid.engine.nodes.forEach(function(node) {
+      let ship = node.id;
+      let locations = getArrayStringLocation(node);
+      nodos.push({ shipType: ship, shipLocations: locations});      
+    });
+    console.log(nodos);
+    shipsJson = JSON.stringify(nodos);
+}
+
+//Utileria 
+//Convierte fila tipo entero a cadena de texto
+function getStringRow(intRow){
+    let stringRow = '';
+    switch(intRow){
+        case 0: stringRow = "A"; break;
+        case 1: stringRow = "B"; break;
+        case 2: stringRow = "C"; break;
+        case 3: stringRow = "D"; break;
+        case 4: stringRow = "E"; break;
+        case 5: stringRow = "F"; break;
+        case 6: stringRow = "G"; break;
+        case 7: stringRow = "H"; break;
+        case 8: stringRow = "I"; break;
+        case 9: stringRow = "J"; break;
+    }
+    return stringRow;
+}
+
+//Ingresa un node, entrega un array de strings : ["A3", "B4"]
+function getArrayStringLocation(node){
+    let locations = [];
+    if (node.height == 1){
+        let fila = getStringRow(node.y);
+        for (let x = node.x; x < (node.x + node.width); x++){
+          locations.push(fila + x);
+        }
+      }else if (node.width == 1){
+        for (let y = node.y; y < (node.y + node.height); y++){
+            locations.push(getStringRow(y) + node.x);
+        }
+    }
+    return locations;
+}
+
+//Ingresa un array locations, entrega un string : "A3 B4"
+function getStringLocation(locations) {
+    let stringLocations = '';
+    locations.forEach(function(location){
+        stringLocations += location + ' ';       
+    });
+    return stringLocations;
+}
+
+//myGrid add event on change
+function showPosition(item){
+    let stringLocations = getStringLocation(getArrayStringLocation(item));
+    $('#' + item.id + 'Position').text(stringLocations);
+    //console.log(item);
 }
