@@ -107,8 +107,7 @@ body {
   /* display: none; */
   background: #000000ad;
   width: 80%;
-  margin-top: 40px;
-  margin-left: 15px;
+  margin: 15px auto;
   padding: 10px;
   border-radius: 1%;
 }
@@ -117,7 +116,7 @@ body {
   display: inline-block;
   color: aliceblue;
   vertical-align: top;
-  margin-top: 10%;
+  margin-top: 10px;
 }
 
 .shipPositionLabel {
@@ -125,5 +124,9 @@ body {
 }
 
 .dragNode {
-  color: blue;
+  color: rgb(0, 255, 13);
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

@@ -6,6 +6,7 @@ var patrolboat = "patrolboat";
 
 var myGrid;
 var shipsJson;
+var dontMove;
 
 $(function() {
     var options = {
@@ -74,9 +75,21 @@ $(function() {
         }
     ];
 
+    //Genera los ships widgets
     items.forEach(function(mywidget){
         myGrid.addWidget(mywidget.el, mywidget);
-        showPosition(mywidget);
+        //showPosition(mywidget);
+    });
+
+    //Genera las positions ships
+    myGrid.engine.nodes.forEach(function(node){
+        $('#blockPositions').append(
+            '<div class="shipTypeLabel">'+
+                '<span class="uppercase">'+node.id+':</span>'+
+                '<span class="shipPositionLabel" id="'+node.id+'Position"></span>'+
+            '</div>'
+        );
+        showPosition(node);
     });
 
     //Manejo de evento change sobre la grid
@@ -84,7 +97,16 @@ $(function() {
         items.forEach(function(item){
             showPosition(item)});
     });
+    
+    myGrid.on('dragstart', function(event, ui){
+        dontMove = $('#'+ event.target.id + 'Position').text();
+        $('#'+ event.target.id + 'Position').text('esperando nueva posicion...').addClass('dragNode');
+    });
 
+    myGrid.on('dragstop', function(event, ui){
+        $('#'+ event.target.id + 'Position').text(dontMove).removeClass('dragNode');
+    });
+    
 });
 
 function rotate(ship){
@@ -162,7 +184,7 @@ function getArrayStringLocation(node){
 
 //Ingresa un array locations, entrega un string : "A3 B4"
 function getStringLocation(locations) {
-    let stringLocations = '';
+    let stringLocations = ' ';
     locations.forEach(function(location){
         stringLocations += location + ' ';       
     });
