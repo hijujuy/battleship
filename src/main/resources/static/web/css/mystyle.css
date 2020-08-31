@@ -104,7 +104,7 @@ body {
   Pantalla de posicionamiento inicial
 */
 #positioningScreen {
-  /* display: none; */
+  display: none;
   background: #000000ad;
   width: 80%;
   margin: 15px auto;
