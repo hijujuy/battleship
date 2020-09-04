@@ -83,7 +83,7 @@ $(function() {
 
     //Genera las positions ships
     myGrid.engine.nodes.forEach(function(node){
-        $('#blockPositions').append(
+        $('#textPositions').append(
             '<div class="shipTypeLabel">'+
                 '<span class="uppercase">'+node.id+':</span>'+
                 '<span class="shipPositionLabel" id="'+node.id+'Position"></span>'+
@@ -197,3 +197,7 @@ function showPosition(item){
     $('#' + item.id + 'Position').text(stringLocations);
     //console.log(item);
 }
+
+$('#btnSubmitPositions').click(function(){
+    $('#positioningScreen').hide(1000);
+});

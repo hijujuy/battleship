@@ -130,3 +130,31 @@ body {
 .uppercase {
   text-transform: uppercase;
 }
+
+.divPositions {
+  margin: 30px 10px;
+  text-align: center;
+}
+
+#titlePositions {
+  font-family: 'Russo One', sans-serif;
+  font-size: 35px;
+}
+
+.msgPositions {
+  width: 100%;
+  height: 45px;
+  background-color: rgb(127, 125, 255);
+  border-radius: 5px;
+  border-style: double;
+}
+
+.btnSubmit {
+  width: 100px;
+  height: 40px;
+  background: rgb(4, 0, 255);
+  color: #000;
+  border-radius: 10px;
+  font-size: x-large;
+  font-family: 'Kanit';
+}

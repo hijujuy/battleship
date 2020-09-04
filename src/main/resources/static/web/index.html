@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Batalla Naval</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Russo&family=Dosis+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap" rel="stylesheet"> 
 
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -12,23 +16,357 @@
   <link rel="stylesheet" href="css/gridstack.min.css" />
   <link rel="stylesheet" href="css/gridstack-extra.css"/>
   <link rel="stylesheet" href="css/mystyle.css"/>
+  <link rel="stylesheet" href="css/bannerStyles.css">
+  <link rel="stylesheet" href="css/gridStyles.css">
 
 </head>
 
 <body>
     <div class="container-fluid">
-      <div id="errorMsg" class="alert alert-danger"></div>
-
-      <div id="positioningScreen">
-        <div class="blockInline">
-          <div class="gridObjects gridPlacement">
-            <div class="grid-stack grid-stack-10">
+      <!-- Banner -->
+      <div class="bannerTitle">
+        <div class="row">
+          <div class="col-md-6">
+              <span class="fontTitle">BATALLA</span>
+              <img  class="imgTitle" src="./img/escudo.png" alt="escudo">
+              <span class="fontTitle">NAVAL</span>
+          </div>
+          <div class="col-md-6">
+            <div class="gameDetails blockInline">              
+              <span>Game ID: </span>
+              <span>23</span>
+              <span>Created: </span>
+              <span>03/09/2020</span>
+              <button class="btnLogout">Logout</button>
             </div>
           </div>
         </div>
-        <div class="blockPositions" id="blockPositions"></div>
+      </div>
+      <!-- Fin Banner -->
+
+      <!-- Mensajes por pantalla -->
+      <div id="logoutSuccess"   class="textCenter screenMsg msgInfo">SALIDA EXITOSA !!</div>
+      <div id="errorMessage"    class="textCenter screenMsg msgError">MENSAJE DE ERROR</div>
+      <div id="okSalvo"         class="textCenter screenMsg msgInfo">MENSAJE OK SALVO</div>
+      <div id="errorSalvo"      class="textCenter screenMsg msgError">MENSAJE ERROR SALVO</div>
+      <div id="gameStateBlock"  class="textCenter screenMsg">
+        <span>TURNO: </span>
+        <span class="gameStateLabel"  id="turno">12</span>
+        <span>ACCION REQUERIDA:</span>
+        <span class="gameStateLabel"  id="gstringGmeState">PLAY</span>
+      </div>
+      <!-- Fin de Mensajes por pantalla -->
+
+      <!-- Tabla posiciones de flotas -->
+      <div id="battleGrids">
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="textCenter">
+                    <h4 class="gridTopLabel">USUARIO</h4>
+                    <h4 class="textCenter" id="currentPlayerName"></h4>
+                </div>
+                <div id="shipsLeftIcons" class="textCenter">
+                    <span id="carrierIcon"><img src="img/carrierafloat.png"></span>
+                    <span id="battleshipIcon"><img src="img/battleshipafloat.png"></span>
+                    <span id="submarineIcon"><img src="img/submarineafloat.png"></span>
+                    <span id="destoyerIcon"><img src="img/destroyerafloat.png"></span>
+                    <span id="patrolboatIcon"><img src="img/patrolboatafloat.png"></span>
+                </div>
+                
+                <div class="divTable selfTable">
+                  <div class="divTableBody">
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                    <div class="divTableRow">
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                      <div class="divTableCell selfCell"></div>
+                    </div>
+                  </div>                  
+              </div><!-- Fin de Tabla de posiciones -->
+            </div>
+
+            <div class="col-sm-6">
+              <div class="textCenter">
+                  <h4 class="gridTopLabel">OPONENTE</h4>
+                  <h4 class="textCenter" id="opponentPlayerName"></h4>
+              </div>
+              <div id="shipsLeftIconsOpp" class="textCenter">
+                  <span id="carrierIconOpp"><img src="img/carrierafloat.png"></span>
+                  <span id="battleshipIconOpp"><img src="img/battleshipafloat.png"></span>
+                  <span id="submarineIconOpp"><img src="img/submarineafloat.png"></span>
+                  <span id="destoyerIconOpp"><img src="img/destroyerafloat.png"></span>
+                  <span id="patrolboatIconOpp"><img src="img/patrolboatafloat.png"></span>
+              </div>
+              
+              <div class="divTable oppTable">
+                <div class="divTableBody">
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                    <div class="divTableCell oppCell"></div>
+                  </div>
+                </div>                  
+            </div><!-- Fin de Tabla de posiciones -->
+          </div>
+        </div>
+      </div>
+            
+    </div>
+
+    <!-- Bloque de posicionamiento -->
+    <div id="positioningScreen">
+      <div class="blockInline">
+        <div class="gridObjects gridPlacement">
+          <div class="grid-stack grid-stack-10">
+          </div>
+        </div>
+      </div>
+      <div class="blockPositions" id="blockPositions">
+        
+        <div class="divPositions">
+          <h3 id="titlePositions">POSICIONA TU FLOTA !!</h3>
+        </div>
+
+        <div id="textPositions" class="divPositions"></div>
+        
+        <div class="divPositions msgPositions"></div>
+        
+        <div class="divPositions">
+          <button class="btnSubmit" id="btnSubmitPositions">JUGAR</button>
+        </div>
+
       </div>
     </div>
+    <!-- Fin Bloque de posicionamiento -->
   
   <script src="js/modernizr-3.11.2.min.js" ></script>
   <script src="js/plugins.js" ></script>

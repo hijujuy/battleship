@@ -1,0 +1,63 @@
+/*
+#battleGrids {
+    display: none;
+}
+*/
+
+.gridTopLabel {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0;
+}
+
+#shipsLeftIcons, #shipsLeftIconsOpp {
+    margin-bottom: 8px;
+}
+
+  /* DivTable.com */
+
+div.selfTable {
+    border-top: 1px dashed #555555;
+    border-left: 1px dashed #555555;
+    background-image: url(../img/backshipplacement.gif);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+div.oppTable {
+    border-top: 1px dashed #d1e26e;
+    border-left: 1px dashed #d1e26e;
+    background-image: url(../img/backships.gif);
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.selfCell {
+    border-right: 1px dashed #555555;
+    border-bottom: 1px dashed #555555;
+}
+
+.oppCell {
+    border-right: 1px dashed #d1e26e;
+    border-bottom: 1px dashed #d1e26e;
+}
+
+.divTable {  
+    display: table; 
+}
+
+.divTableRow { 
+    display: table-row; 
+}
+
+.divTableCell { 
+    display: table-cell;
+}
+
+.divTableBody { 
+    display: table-row-group;
+}
