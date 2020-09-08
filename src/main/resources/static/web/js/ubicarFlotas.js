@@ -6,6 +6,7 @@ var patrolboat = "patrolboat";
 
 var myGrid;
 var shipsJson;
+var shipsArray;
 var dontMove;
 
 $(function() {
@@ -17,7 +18,8 @@ $(function() {
         maxRow: 10,
         disableResize: true,
         cellHeight: 45,
-        verticalMargin: 0
+        verticalMargin: 0,
+        acceptWidgets: '.misil'
     };
 
     myGrid = GridStack.init(options);
@@ -141,10 +143,14 @@ function saveGrid() {
     myGrid.engine.nodes.forEach(function(node) {
       let ship = node.id;
       let locations = getArrayStringLocation(node);
-      nodos.push({ shipType: ship, shipLocations: locations});      
+      let directionShip;
+      $('#'+ship+'Hand').hasClass(ship+'Ver') ? directionShip = 'ver' : directionShip = 'hor' 
+      nodos.push({ shipType: ship, shipLocations: locations, direction: directionShip});      
     });
     console.log(nodos);
     shipsJson = JSON.stringify(nodos);
+    shipsArray = nodos;
+    ubicarFlotas();
 }
 
 //Utileria 
@@ -198,6 +204,22 @@ function showPosition(item){
     //console.log(item);
 }
 
+/* ubicacion de flotas en la grilla (Horizontal o Vertical) */
+function ubicarFlotas() {
+    shipsArray.forEach(function(item){
+        if (item.direction == 'hor') {
+            $('#P'+item.shipLocations[0]).html(
+                '<img class="'+item.shipType+'HorGrid" src="img/'+item.shipType+item.direction+'.png"/>');
+        }else {
+            $('#P'+item.shipLocations[0]).html(
+                '<img class="'+item.shipType+'VerGrid" src="img/'+item.shipType+item.direction+'.png"/>');
+        }
+        
+    });
+}
+
 $('#btnSubmitPositions').click(function(){
+    saveGrid();
     $('#positioningScreen').hide(1000);
+    $('#battleGrids').show('slow');
 });

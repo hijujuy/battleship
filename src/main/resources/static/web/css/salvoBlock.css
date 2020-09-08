@@ -1,21 +1,52 @@
-.drag-zone {
-    width: 100%;
-    height: 80px;
+.salvoBlock {
+    width: 120px;
     background-color: rgba(0, 0, 0, 0.801);
+    padding: 10px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    margin-right: auto;
 }
 
 .salvoCharger {
-    background-color: rgba(209, 209, 209, 0.534);
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid gold; */
 }
 
-.draggable {
+#btnSubmitSalvos {
+    width: 100px;
+    position: absolute;
+    margin-top: 300px;
+}
+
+.salvo {
     background-image: url(../img/misilrocket.gif);
     background-size: cover;
     width: 40px;
     height: 40px;
-    display: inline-block;
-    cursor: grab;
+    margin: 10px auto;
+}
+
+.salvoGrid {
+    background-image: url(../img/misilrocket.gif);
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.salvoSelected {
+    background-color: goldenrod;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.oppCellHover {
+    background-image: url(../img/targetself.png);
+    background-size: cover;
+}
+
+.cellUsed {
+    width: 40px;
+    height: 40px;
 }

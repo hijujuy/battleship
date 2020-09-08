@@ -1,1 +1,2 @@
-//$('#positioningScreen').toggle(1000);
+
+$('#positioningScreen').toggle(1000);
