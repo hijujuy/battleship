@@ -1,0 +1,17 @@
+#gameState {
+    margin: 15px auto;
+}
+
+.tableGameState {
+    background-color: rgba(0, 0, 0, 0.829);
+    font-family: 'Architects Daughter', cursive;
+    color: rgb(255, 230, 0);
+    width: 100%;
+}
+
+th, td {
+    height: 30px;
+    text-align: left;
+    border-top: 1px solid snow;
+    border-bottom: 1px solid snow;
+}

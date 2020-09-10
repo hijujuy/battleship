@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Batalla Naval</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Russo&family=Dosis+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Russo+One&family=Dosis+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet"> 
 
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -19,6 +20,7 @@
   <link rel="stylesheet" href="css/bannerStyles.css">
   <link rel="stylesheet" href="css/gridStyles.css">
   <link rel="stylesheet" href="css/salvoBlock.css">
+  <link rel="stylesheet" href="css/gameState.css">
 
 </head>
 
@@ -350,6 +352,50 @@
               </div><!-- fin tableboardOpp -->
             </div><!-- col-md-6 oppTable -->
           </div><!-- row principal -->          
+
+          <div id="gameState">
+          <div class="row">
+              <div class="col-md-6">
+                <table id="gameStateSelf" class="tableGameState">
+                  <thead>
+                    <tr>
+                      <th colspan="6" class="textCenter">Daños en mi flota</th>
+                    </tr>
+                    <tr>
+                      <th class="textCenter">Turno</th>
+                      <th>Carrier</th>
+                      <th>Battle Ship</th>
+                      <th>Submarine</th>
+                      <th>Destroyer</th>
+                      <th>Patrol Boat</th>
+                      <th>Missed</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbodyGameStateSelf"></tbody>
+                </table>
+              </div>
+              <div class="col-md-6">
+                <table id="gameStateOpp" class="tableGameState">
+                  <thead>
+                    <tr>
+                      <th colspan="6" class="textCenter">Daños de la flota oponente</th>
+                    </tr>
+                    <tr>
+                      <th class="textCenter">Turno</th>
+                      <th>Carrier</th>
+                      <th>Battle Ship</th>
+                      <th>Submarine</th>
+                      <th>Destroyer</th>
+                      <th>Patrol Boat</th>
+                      <th>Missed</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbodyGameStateOpp"></tbody>
+                </table>
+              </div>
+          </div>
+          </div>
+
       </div><!-- battle grid -->
     </div><!-- container-->
 
@@ -388,6 +434,7 @@
   <script src="js/bootstrap.min.js" ></script>
   <script src="js/gridstack.all.js"></script>
   <script src="js/ubicarFlotas.js"></script>
+  <script src="js/gameState.js"></script>
   <script src="js/interactSalvo.js"></script>
   <script src="js/playgame.js"></script>
 </body>

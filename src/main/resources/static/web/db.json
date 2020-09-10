@@ -1,6 +1,122 @@
 {
-    "data": {
-        "usser": "diego",
-        "pass": "123"
+    "hits" : {
+        "self": [
+            {
+                "turn": 1,
+                "hitLocations": ["A1", "B1", "C3"],
+                "damages": {
+                    "carrierHits": 0,
+                    "battleshipHits": 3,
+                    "submarineHits": 0,
+                    "destroyerHits": 0,
+                    "patrolboatHits": 0
+                },
+                "accumulatedDamages": {
+                    "carrier": 0,
+                    "battleship": 1,
+                    "submarine": 0,
+                    "destroyer": 2,
+                    "patrolboat": 0
+                },
+                "missed": 0
+            },
+            {
+                "turn": 2,
+                "hitLocations": ["A3", "B3", "C6"],
+                "damages": {
+                    "carrierHits": 0,
+                    "battleshipHits": 0,
+                    "submarineHits": 0,
+                    "destroyerHits": 0,
+                    "patrolboatHits": 0
+                },
+                "accumulatedDamages": {
+                    "carrier": 0,
+                    "battleship": 1,
+                    "submarine": 0,
+                    "destroyer": 2,
+                    "patrolboat": 0
+                },
+                "missed": 3
+            },
+            {
+                "turn": 3,
+                "hitLocations": ["A5", "B4", "C5"],
+                "damages": {
+                    "carrierHits": 1,
+                    "battleshipHits": 0,
+                    "submarineHits": 0,
+                    "destroyerHits": 1,
+                    "patrolboatHits": 1
+                },
+                "accumulatedDamages": {
+                    "carrier": 1,
+                    "battleship": 1,
+                    "submarine": 0,
+                    "destroyer": 3,
+                    "patrolboat": 1
+                },
+                "missed": 0
+            }
+        ],
+        "opponent": [
+            {
+                "turn": 1,
+                "hitLocations": ["D1", "F1", "H3"],
+                "damages": {
+                    "carrierHits": 0,
+                    "battleshipHits": 1,
+                    "submarineHits": 0,
+                    "destroyerHits": 2,
+                    "patrolboatHits": 0
+                },
+                "accumulatedDamages": {
+                    "carrier": 0,
+                    "battleship": 1,
+                    "submarine": 0,
+                    "destroyer": 2,
+                    "patrolboat": 0
+                },
+                "missed": 0
+            },
+            {
+                "turn": 2,
+                "hitLocations": ["D4", "F4", "H4"],
+                "damages": {
+                    "carrierHits": 0,
+                    "battleshipHits": 0,
+                    "submarineHits": 0,
+                    "destroyerHits": 0,
+                    "patrolboatHits": 0
+                },
+                "accumulatedDamages": {
+                    "carrier": 0,
+                    "battleship": 1,
+                    "submarine": 0,
+                    "destroyer": 2,
+                    "patrolboat": 0
+                },
+                "missed": 3
+            },
+            {
+                "turn": 3,
+                "hitLocations": ["J6", "J7", "J8"],
+                "damages": {
+                    "carrierHits": 1,
+                    "battleshipHits": 0,
+                    "submarineHits": 0,
+                    "destroyerHits": 1,
+                    "patrolboatHits": 1
+                },
+                "accumulatedDamages": {
+                    "carrier": 1,
+                    "battleship": 1,
+                    "submarine": 0,
+                    "destroyer": 3,
+                    "patrolboat": 1
+                },
+                "missed": 0
+            }
+        ]
     }
 }

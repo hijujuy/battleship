@@ -74,5 +74,6 @@ $('#btnSubmitSalvos').click(function(){
         console.log('No se apuntaron misiles');
     }else if (tirosApuntados < maxAmountSalvo){
         console.log('Debe terminar de apuntar los misiles');
-    }    
+    }
+    $(this).css('cursor', 'not-allowed').css('opacity', 0.8);
 });

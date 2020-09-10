@@ -218,7 +218,7 @@ function ubicarFlotas() {
     });
 }
 
-$('#btnSubmitPositions').click(function(){
+$('#btnSubmitPositions').click(function() {
     saveGrid();
     $('#positioningScreen').hide(1000);
     $('#battleGrids').show('slow');

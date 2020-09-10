@@ -5,8 +5,12 @@
   border: 5px solid blue;
 }
 */
+.disabled {
+  cursor: not-allowed;
+}
+
 body {
-  background: url(../img/back2.jpg);
+  background: url(../img/back3.jpg);
   font-family: 'Dosis', sans-serif;
 }
 
