@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="css/gridStyles.css">
   <link rel="stylesheet" href="css/salvoBlock.css">
   <link rel="stylesheet" href="css/gameState.css">
-
 </head>
 
 <body>
@@ -35,11 +34,11 @@
               <span class="fontTitle">NAVAL</span>
           </div>
           <div class="col-md-6">
-            <div class="gameDetails blockInline">              
+            <div class="gameDetails blockInline" id="detailsTop">              
               <span>Game ID: </span>
-              <span>23</span>
+              <span id="gameId"></span>
               <span>Created: </span>
-              <span>03/09/2020</span>
+              <span id="gameCreated"></span>
               <button class="btnLogout">Logout</button>
             </div>
           </div>
@@ -48,15 +47,15 @@
       <!-- Fin Banner -->
 
       <!-- Mensajes por pantalla -->
-      <div id="logoutSuccess"   class="textCenter screenMsg msgInfo">SALIDA EXITOSA !!</div>
-      <div id="errorMessage"    class="textCenter screenMsg msgError">MENSAJE DE ERROR</div>
-      <div id="okSalvo"         class="textCenter screenMsg msgInfo">MENSAJE OK SALVO</div>
-      <div id="errorSalvo"      class="textCenter screenMsg msgError">MENSAJE ERROR SALVO</div>
+      <div id="logoutSuccess"   class="textCenter screenMsg msgInfo"></div>
+      <div id="errorMessage"    class="textCenter screenMsg msgError"></div>
+      <div id="okSalvo"         class="textCenter screenMsg msgInfo"></div>
+      <div id="errorSalvo"      class="textCenter screenMsg msgError"></div>
       <div id="gameStateBlock"  class="textCenter screenMsg">
         <span>TURNO: </span>
-        <span class="gameStateLabel"  id="turno">12</span>
+        <span class="gameStateLabel"  id="gstringTurn"></span>
         <span>ACCION REQUERIDA:</span>
-        <span class="gameStateLabel"  id="gstringGmeState">PLAY</span>
+        <span class="gameStateLabel"  id="gstringGameState"></span>
       </div>
       <!-- Fin de Mensajes por pantalla -->
 
@@ -67,13 +66,6 @@
                 <div class="textCenter">
                     <h4 class="gridTopLabel">USUARIO</h4>
                     <h4 class="textCenter" id="currentPlayerName"></h4>
-                </div>
-                <div id="shipsLeftIcons" class="textCenter">
-                    <span id="carrierIcon"><img src="img/carrierafloat.png"></span>
-                    <span id="battleshipIcon"><img src="img/battleshipafloat.png"></span>
-                    <span id="submarineIcon"><img src="img/submarineafloat.png"></span>
-                    <span id="destoyerIcon"><img src="img/destroyerafloat.png"></span>
-                    <span id="patrolboatIcon"><img src="img/patrolboatafloat.png"></span>
                 </div>
                 
                 <div class="divTable selfTable">
@@ -208,13 +200,6 @@
                 <h4 class="gridTopLabel">OPONENTE</h4>
                 <h4 class="textCenter" id="opponentPlayerName"></h4>
               </div>
-              <div id="shipsLeftIconsOpp" class="textCenter">
-                <span id="carrierIconOpp"><img src="img/carrierafloat.png"></span>
-                <span id="battleshipIconOpp"><img src="img/battleshipafloat.png"></span>
-                <span id="submarineIconOpp"><img src="img/submarineafloat.png"></span>
-                <span id="destoyerIconOpp"><img src="img/destroyerafloat.png"></span>
-                <span id="patrolboatIconOpp"><img src="img/patrolboatafloat.png"></span>
-              </div>
               
               <div class="tableboardOpp">
                 <div class="divTable oppTable">
@@ -341,12 +326,12 @@
                     </div>
                   </div>
                 </div><!-- Fin de Tabla de posiciones -->
-                <div class="salvoBlock">
+                <div class="salvoBlock" id="salvoBlock">
                   <div class="salvoCharger" id="salvoZone">
+                    <div class="salvo" id="salvo1"></div>
                     <div class="salvo" id="salvo2"></div>
                     <div class="salvo" id="salvo3"></div>
-                    <div class="salvo" id="salvo1"></div>
-                  </div>            
+                  </div>
                   <button class="btn btn-warning" id="btnSubmitSalvos">Fuego!</button>
                 </div><!-- Fin bloque de salvos -->
               </div><!-- fin tableboardOpp -->
@@ -359,7 +344,7 @@
                 <table id="gameStateSelf" class="tableGameState">
                   <thead>
                     <tr>
-                      <th colspan="6" class="textCenter">Daños en mi flota</th>
+                      <th colspan="7" class="textCenter">Daños en mi flota</th>
                     </tr>
                     <tr>
                       <th class="textCenter">Turno</th>
@@ -378,7 +363,7 @@
                 <table id="gameStateOpp" class="tableGameState">
                   <thead>
                     <tr>
-                      <th colspan="6" class="textCenter">Daños de la flota oponente</th>
+                      <th colspan="7" class="textCenter">Daños de la flota oponente</th>
                     </tr>
                     <tr>
                       <th class="textCenter">Turno</th>
@@ -433,7 +418,7 @@
   <script src="js/popper.min.js" ></script>
   <script src="js/bootstrap.min.js" ></script>
   <script src="js/gridstack.all.js"></script>
-  <script src="js/ubicarFlotas.js"></script>
+  <script src="js/placeFleet.js"></script>
   <script src="js/gameState.js"></script>
   <script src="js/interactSalvo.js"></script>
   <script src="js/playgame.js"></script>

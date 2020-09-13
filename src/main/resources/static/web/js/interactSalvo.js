@@ -1,19 +1,26 @@
-var locations = [
-    { salvo: 'salvo1', location: ''},
-    { salvo: 'salvo2', location: ''},
-    { salvo: 'salvo3', location: ''},
-];
+var locations = [];
 var salvo = '';
 var lock = false;
 const maxAmountSalvo = 3;
 
-$('.salvo').click(function(event) {    
+function makeSalvoBlock() {
+    $('#salvoBlock').empty();    
+    $('#salvoBlock').html(
+        '<div class="salvoCharger" id="salvoZone">'+
+            '<div class="salvo" id="salvo1"></div>'+
+            '<div class="salvo" id="salvo2"></div>'+
+            '<div class="salvo" id="salvo3"></div>'+
+        '</div>'+
+        '<button class="btn btn-warning" id="btnSubmitSalvos">Fuego!</button>'
+    );
+}
+
+function addEventSalvo(event) {    
     salvo = event.target.id;
     if (!$("#"+salvo).hasClass("salvoSelected")) {
         if (!lock) {
             $("#"+salvo).addClass("salvoSelected");
             lock = true;
-            //console.log(event.target.id);
             $('.oppCell').hover(
                 function (event) {
                     let cellId = event.target.id;
@@ -29,51 +36,53 @@ $('.salvo').click(function(event) {
             );        
         }        
     }    
-});
+}
 
-$('.oppCell').click(function(event) {
+function addEventOppCell(event) {
     let cellId = event.target.id;
+    console.log('celda seleccionada '+cellId);
     if (lock) {
         if (!$('#'+cellId).hasClass('cellUsed')) {
-            let salvoItem = locations.find(item => item.salvo == salvo);
-            salvoItem.location = cellId;
-            lock = false;                
-            addSalvoGrid(salvo, cellId);
+            locations.push({"salvo": salvo, "location": cellId});
+            console.log(locations);
+            lock = false;
+            $('#'+salvo).hide('slow');
+            $('#'+cellId).removeClass('oppCellHover').addClass('salvoGrid');
             $('#'+cellId).addClass('cellUsed');
-        }   
+        }
     }
     else {
         if ($('#'+cellId).hasClass('cellUsed')) {
             let salvo = locations.find(salvo => salvo.location == cellId);
-            removeSalvoGrid(salvo.salvo, salvo.location);
-            salvo.location = '';
+            $('#'+cellId).removeClass('salvoGrid').removeClass('cellUsed');
+            $('#'+salvo.salvo).show('slow').removeClass('salvoSelected');
+            locations = locations.filter(salvo => salvo.location != cellId);
         }
     }
-});
-
-function addSalvoGrid(salvo, location){
-    $('#'+salvo).hide('slow');
-    $('#'+location).removeClass('oppCellHover').addClass('salvoGrid');
 }
 
-function removeSalvoGrid(salvo, location){
-    $('#'+location).removeClass('salvoGrid');
-    $('#'+salvo).show('slow').removeClass('salvoSelected');
-}
-
-$('#btnSubmitSalvos').click(function(){
-    let tirosApuntados = 0;
-    locations.forEach(function(item){ 
-        if (item.location != '') {
-            tirosApuntados++;
-        } 
-    });
-    if (tirosApuntados == maxAmountSalvo){
-        console.log(locations);
-    }else if (tirosApuntados == 0) {
+function returnSalvoes(){    
+    if (locations.length == maxAmountSalvo){
+        locations = locations.map(function(salvo) {
+            return salvo.location;
+        });
+        sendSalvoes(locations);
+    }else if (locations.length == 0) {
         console.log('No se apuntaron misiles');
-    }else if (tirosApuntados < maxAmountSalvo){
+    }else if (locations.length < maxAmountSalvo){
         console.log('Debe terminar de apuntar los misiles');
-    }
-    $(this).css('cursor', 'not-allowed').css('opacity', 0.8);
-});
+    }    
+}
+
+function placeHits(hits) {
+    hits.self.forEach(report => {
+        report.hitLocations.forEach(location => {
+            $('#P'+location).append('<div class="hitShip"></div>');
+        });
+    });
+    hits.opponent.forEach(report => {
+        report.hitLocations.forEach(location => {
+            $('#'+location).append('<div class="hitShip">'+report.turn+'</div>');
+        });
+    });
+}

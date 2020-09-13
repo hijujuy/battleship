@@ -1,11 +1,3 @@
-var hits;
-
-$.getJSON("http://localhost:3000/hits")
-    .done(function(data){
-        hits = data;
-        makeGameState(hits, 'self');
-        makeGameState(hits, 'opponent');
-});
 
 function makeReport(play){
     let report;
@@ -37,15 +29,17 @@ function makeReport(play){
 
 function makeGameState(hits, player) {
     if (player == 'self'){
+        $('#tbodyGameStateSelf').empty();
         let play = hits.self;
         let report = makeReport(play);        
         $('#tbodyGameStateSelf').prepend(report);                
     }
     else if (player == 'opponent'){
+        $('#tbodyGameStateOpp').empty();
         let play = hits.opponent;
         let report = makeReport(play);        
         $('#tbodyGameStateOpp').prepend(report);        
-    }    
+    }
 }
 
     /*

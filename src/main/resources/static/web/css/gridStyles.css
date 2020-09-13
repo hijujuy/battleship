@@ -32,12 +32,13 @@ div.oppTable {
     background-size: cover;
     width: 400px;
     height: 400px;
-    margin-left: auto;
+    margin: 0 auto;
 }
 
 .selfCell {
     border-right: 1px dashed #555555;
     border-bottom: 1px dashed #555555;
+    position: relative;
 }
 
 .oppCell {
@@ -64,67 +65,72 @@ div.oppTable {
 /* posiciona tablero oponente y misiles */
 .tableboardOpp {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 /* Ubicacion de flota en la grilla */
 
 .carrierHorGrid {
-    position: absolute;
     width: 200px;
     height: 40px;
 }
   
 .destroyerHorGrid {
-    position: absolute;
-    width: 160px;
+    width: 120px;
     height: 40px;
 }
   
 .submarineHorGrid {
-    position: absolute;
     width: 120px;
     height: 40px;
 }
   
 .battleshipHorGrid {
-    position: absolute;
-    width: 120px;
+    width: 160px;
     height: 40px;
 }
   
 .patrolboatHorGrid {
-    position: absolute;
     width: 80px;
     height: 40px;
 }
 
 .carrierVerGrid {
-    position: absolute;
     width: 40px;
     height: 200px;
 }
   
 .destroyerVerGrid {
-    position: absolute;
     width: 40px;
     height: 160px;
 }
   
 .submarineVerGrid {
-    position: absolute;
     width: 40px;
     height: 120px;
 }
   
 .battleshipVerGrid {
-    position: absolute;
     width: 40px;
     height: 120px;
 }
   
 .patrolboatVerGrid {
-    position: absolute;
     width: 40px;
     height: 80px;
+}
+
+/* Show hits on the grid */
+.selfCell img {
+    position: absolute;
+}
+
+.hitShip {
+    background-image: url(../img/hit.gif);
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: bottom;
+    position: absolute;
 }

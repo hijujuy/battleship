@@ -6,10 +6,9 @@ var patrolboat = "patrolboat";
 
 var myGrid;
 var shipsJson;
-var shipsArray;
 var dontMove;
 
-$(function() {
+function shipPanel() {
     var options = {
         disableOneColumnMode: true,
         removeTimeout: 100,
@@ -35,7 +34,7 @@ $(function() {
                 '</div>',
             id: "carrier"
         },
-        {   x: 2, y: 0, width: 4, height: 1, autoPosition: false, minWidth: 1, maxWidth: 4, minHeight: 1, maxHeight: 4,
+        {   x: 0, y: 2, width: 4, height: 1, autoPosition: false, minWidth: 1, maxWidth: 4, minHeight: 1, maxHeight: 4,
             el: '<div id="battleship">'+
                     '<div id="battleshipHand" class="grid-stack-item-content battleshipHor">'+
                         '<button class="rotatebutton" onclick="rotate(battleship)">'+
@@ -45,7 +44,7 @@ $(function() {
                 '</div>',
             id: "battleship"
         },
-        {   x: 4, y: 0, width: 3, height: 1, autoPosition: false, minWidth: 1, maxWidth: 3, minHeight: 1, maxHeight: 3,
+        {   x: 0, y: 4, width: 3, height: 1, autoPosition: false, minWidth: 1, maxWidth: 3, minHeight: 1, maxHeight: 3,
             el: '<div id="destroyer">'+
                     '<div id="destroyerHand" class="grid-stack-item-content destroyerHor">'+
                         '<button class="rotatebutton" onclick="rotate(destroyer)">'+
@@ -55,7 +54,7 @@ $(function() {
                 '</div>',
             id: "destroyer"
         },
-        {   x: 6, y: 0, width: 3, height: 1, autoPosition: false, minWidth: 1, maxWidth: 3, minHeight: 1, maxHeight: 3,
+        {   x: 0, y: 6, width: 3, height: 1, autoPosition: false, minWidth: 1, maxWidth: 3, minHeight: 1, maxHeight: 3,
             el: '<div id="submarine">'+
                     '<div id="submarineHand" class="grid-stack-item-content submarineHor">'+
                         '<button class="rotatebutton" onclick="rotate(submarine)">'+
@@ -65,7 +64,7 @@ $(function() {
                 '</div>',
             id: "submarine"
         },
-        {   x: 8, y: 0, width: 2, height: 1, autoPosition: false, minWidth: 1, maxWidth: 2, minHeight: 1, maxHeight: 2,
+        {   x: 0, y: 8, width: 2, height: 1, autoPosition: false, minWidth: 1, maxWidth: 2, minHeight: 1, maxHeight: 2,
             el: '<div id="patrolboat">'+
                     '<div id="patrolboatHand" class="grid-stack-item-content patrolboatHor">'+
                         '<button class="rotatebutton" onclick="rotate(patrolboat)">'+
@@ -109,7 +108,7 @@ $(function() {
         $('#'+ event.target.id + 'Position').text(dontMove).removeClass('dragNode');
     });
     
-});
+};
 
 function rotate(ship){
     let shipId = "#" + ship; //shipID es "#carrier"
@@ -147,10 +146,8 @@ function saveGrid() {
       $('#'+ship+'Hand').hasClass(ship+'Ver') ? directionShip = 'ver' : directionShip = 'hor' 
       nodos.push({ shipType: ship, shipLocations: locations, direction: directionShip});      
     });
-    console.log(nodos);
     shipsJson = JSON.stringify(nodos);
-    shipsArray = nodos;
-    ubicarFlotas();
+    placeShips(shipsJson); //Redirecciona flujo hacia playgame.js
 }
 
 //Utileria 
@@ -205,21 +202,29 @@ function showPosition(item){
 }
 
 /* ubicacion de flotas en la grilla (Horizontal o Vertical) */
-function ubicarFlotas() {
-    shipsArray.forEach(function(item){
+function placeFleet(shipsArray) {
+    for (let i = 0; i < shipsArray.length; i++) {
+        let item = shipsArray[i];
         if (item.direction == 'hor') {
             $('#P'+item.shipLocations[0]).html(
                 '<img class="'+item.shipType+'HorGrid" src="img/'+item.shipType+item.direction+'.png"/>');
         }else {
             $('#P'+item.shipLocations[0]).html(
                 '<img class="'+item.shipType+'VerGrid" src="img/'+item.shipType+item.direction+'.png"/>');
-        }
+        }                
+    }
+    // shipsArray.forEach(function(item){
+    //     if (item.direction == 'hor') {
+    //         $('#P'+item.shipLocations[0]).html(
+    //             '<img class="'+item.shipType+'HorGrid" src="img/'+item.shipType+item.direction+'.png"/>');
+    //     }else {
+    //         $('#P'+item.shipLocations[0]).html(
+    //             '<img class="'+item.shipType+'VerGrid" src="img/'+item.shipType+item.direction+'.png"/>');
+    //     }
         
-    });
+    // });
 }
 
 $('#btnSubmitPositions').click(function() {
     saveGrid();
-    $('#positioningScreen').hide(1000);
-    $('#battleGrids').show('slow');
 });
