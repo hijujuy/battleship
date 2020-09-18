@@ -1,0 +1,77 @@
+{
+    "record": {
+
+        "player": {
+            "id": 2,
+            "email": "berenguer.pou.llavina@gmail.com"
+        },
+        
+        "games" :[
+            {    
+                "id" : 22,
+                "created" : 1525441591000,        
+                "gamePlayers" : [ { 
+                    "id" : 32, 
+                    "player" : { "id" : 2, "email" : "berenguer.pou.llavina@gmail.com" },
+                    "joinDate" : 1525441591000
+                    } 
+                ]
+            }, {    
+                "id" : 45,
+                "created" : 2525441591000,        
+                "gamePlayers" : [ { 
+                    "id" : 34, 
+                    "player" : { "id" : 2, "email" : "berenguer.pou.llavina@gmail.com" },
+                    "joinDate" : 2535441591000
+                    }, {
+                    "id" : 49,
+                    "player" : { "id" : 32, "email" : "mimi@gmail.com" },
+                    "joinDate" : 2535441625000
+                    }
+                ]
+            }, {    
+                "id" : 13,
+                "created" : 1525441591000,        
+                "gamePlayers" : [ { 
+                    "id" : 75, 
+                    "player" : { "id" : 2, "email" : "berenguer.pou.llavina@gmail.com" },
+                    "joinDate" : 1525441591000
+                }, {
+                    "id" : 37,
+                    "player" : { "id" : 42, "email" : "mapplejoin@gmail.com" },
+                    "joinDate" : 1525441625000
+                } ],        
+                "scores" : [{
+                    "player": 2,
+                    "score" : 1.0,
+                    "finishDate": 1525441931000
+                    },{
+                    "player": 42,
+                    "score" : 0.0,
+                    "finishDate": 1525441931000
+                    }
+                ]
+            }
+        ],
+        "scores": [ {
+                "playerId": 2,
+                "playerName": "berenguer.pou.llavina@gmail.com",
+                "won": 10,
+                "tied": 20,
+                "lost": 15
+            },{
+                "playerId": 32,
+                "playerName": "mimi@gmail.com",
+                "won": 13,
+                "tied": 16,
+                "lost": 19
+            },{
+                "playerId": 42,
+                "playerName": "mapplejoin@gmail.com",
+                "won": 11,
+                "tied": 12,
+                "lost": 13
+            }        
+        ]    
+    }
+}

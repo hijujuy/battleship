@@ -1,9 +1,14 @@
 var game;
-
+let id = getParam('id');
+let urlGame = 'http://localhost:3000/gameviews/'+id;
 refresh();
 
+function getParam(name){
+    return new URLSearchParams(location.search.substring(1)).get(name);
+}
+
 function refresh() {
-    $.getJSON("http://localhost:3000/game")
+    $.getJSON(urlGame)
         .done(function(data){
             game = data;
 
@@ -40,7 +45,7 @@ function refresh() {
                 });
 
                 $('#btnSubmitSalvos').click(function(event){
-                    returnSalvos();
+                    sendSalvoes();
                 });                
                 
                 $('#positioningScreen').hide('slow');    

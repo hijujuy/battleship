@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Batalla Naval</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Russo+One&family=Dosis+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"> 
+    
+    <!-- Game styles -->
+    <link rel="stylesheet" href="css/games.css">
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Banner -->
+        <div class="bannerTop">
+            <div class="bannerTitle"></div>
+            <!-- Fin Banner -->
+                    
+            <div id="rowlogin" class="row">
+                <div id="login" class="col-md-8">
+                    <label for="name">Name:</label>
+                    <input id="name" type="text" required>
+                
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" required/>
+                
+                    <button id="btnLogin" class="btn btn-sm btn-success">Login</button>
+                    <button id="btnSingup" class="btn btn-sm btn-primary">Sing Up</button>
+                </div>
+                <div id="logout" class="col-md-4 ml-auto">
+                    <label>Palyer: <span id="currentPlayer"></span></label>
+                    <button id="btnLogout"  class="btn btn-sm btn-danger">Logout</button>
+                </div>
+            </div>
+        </div>
+        <div id="okLogout"   class="screenMsg msgInfo"  ></div>
+        <div id="errorLogin" class="screenMsg msgError" ></div>
+        <div id="okLogin"    class="screenMsg msgInfo"  ></div>
+        <div class="bannerBottom"></div>
+
+        <div id="btnNewGame" class="btn btn-sm btn-warning">New Game</div>
+    
+        <div class="row" id="gamesScores">
+            <table id="gamesBoard" class="table table-dark table-striped gamesBoard">
+                <thead>
+                    <tr>
+                        <th colspan="5">
+                            <div class="h4 textCenter">GAME LIST</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Nro</th>
+                        <th>Player 1</th>
+                        <th>Player 2</th>
+                        <th>Created</th>
+                        <th>Actions</th>                    
+                    </tr>
+                </thead>
+                <tbody id="bodyGamesBoard"></tbody>
+            </table>
+
+            <table id="scoreBoard" class="table table-dark table-striped scoreBoard">
+                <thead>
+                    <tr>
+                        <th colspan="5">
+                            <div class="h4 textCenter">SCORES</div>                        
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Win </th>
+                        <th>Tie </th>
+                        <th>Lost</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyScoreBoard"></tbody>
+            </table>
+        </div>
+
+        <!-- Mensajes por pantalla -->
+        <div id="logoutSuccess"   class="textCenter screenMsg msgInfo"></div>
+        <div id="errorMessage"    class="textCenter screenMsg msgError"></div>
+        <div id="okSalvo"         class="textCenter screenMsg msgInfo"></div>
+        <div id="errorSalvo"      class="textCenter screenMsg msgError"></div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/popper.min.js" ></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/games.js"></script>
+</body>
+</html>

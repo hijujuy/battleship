@@ -56,6 +56,8 @@ div.oppTable {
 
 .divTableCell { 
     display: table-cell;
+    touch-action: none;
+    user-select: none;
 }
 
 .divTableBody { 

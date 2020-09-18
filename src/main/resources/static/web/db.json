@@ -1,262 +1,375 @@
 {
-  "game": {
-    "id": 22,
-    "created": 1525441591000,
-    "gameState": "WAITINGOPP",
-    "gamePlayers": [
-      {
-        "id": 32,
-        "player": {
-          "id": 2,
-          "email": "berenguer.pou.llavina@gmail.com"
-        },
-        "joinDate": 1525441591000
-      },
-      {
-        "id": 42,
-        "player": {
-          "id": 32,
-          "email": "mimi@gmail.com"
-        },
-        "joinDate": 1525441625000
-      }
-    ],
-  "ships": [
+  "users": [
     {
-      "shipType": "carrier",
-      "shipLocations": [
-        "B5",
-        "B6",
-        "B7",
-        "B8",
-        "B9"
-      ],
-      "direction": "hor",
+      "email": "diego",
+      "password": "123",
       "id": 1
     },
     {
-      "shipType": "battleship",
-      "shipLocations": [
-        "C0",
-        "C1",
-        "C2",
-        "C3"
-      ],
-      "direction": "hor",
+      "email": "matias",
+      "password": "123",
       "id": 2
-    },
-    {
-      "shipType": "destroyer",
-      "shipLocations": [
-        "E0",
-        "E1",
-        "E2"
-      ],
-      "direction": "hor",
-      "id": 3
-    },
-    {
-      "shipType": "submarine",
-      "shipLocations": [
-        "G0",
-        "G1",
-        "G2"
-      ],
-      "direction": "hor",
-      "id": 4
-    },
-    {
-      "shipType": "patrolboat",
-      "shipLocations": [
-        "I0",
-        "I1"
-      ],
-      "direction": "hor",
-      "id": 5
     }
   ],
-  "salvoes": [
+  "player": {
+    "email": "matias",
+    "password": "123",
+    "id": "2"
+  },
+  "games": [
     {
-      "turn": 1,
-      "player": 2,
-      "locations": [
-        "J3",
-        "J2",
-        "J1"
+      "id": 22,
+      "created": 1525441591000,
+      "gamePlayers": [
+        {
+          "id": 32,
+          "player": {
+            "id": 2,
+            "email": "berenguer.pou.llavina@gmail.com"
+          },
+          "joinDate": 1525441591000
+        }
       ]
     },
     {
-      "turn": 2,
-      "player": 2,
-      "locations": [
-        "H2",
-        "H1",
-        "I2"
+      "id": 45,
+      "created": 2525441591000,
+      "gamePlayers": [
+        {
+          "id": 34,
+          "player": {
+            "id": 2,
+            "email": "berenguer.pou.llavina@gmail.com"
+          },
+          "joinDate": 2535441591000
+        },
+        {
+          "id": 49,
+          "player": {
+            "id": 32,
+            "email": "mimi@gmail.com"
+          },
+          "joinDate": 2535441625000
+        }
       ]
     },
     {
-      "turn": 1,
-      "player": 32,
-      "locations": [
-        "A1",
-        "B1",
-        "A0"
-      ]
-    },
-    {
-      "turn": 2,
-      "player": 32,
-      "locations": [
-        "D0",
-        "E0",
-        "F0"
+      "id": 13,
+      "created": 1525441591000,
+      "gamePlayers": [
+        {
+          "id": 75,
+          "player": {
+            "id": 2,
+            "email": "berenguer.pou.llavina@gmail.com"
+          },
+          "joinDate": 1525441591000
+        },
+        {
+          "id": 37,
+          "player": {
+            "id": 42,
+            "email": "mapplejoin@gmail.com"
+          },
+          "joinDate": 1525441625000
+        }
+      ],
+      "scores": [
+        {
+          "player": 2,
+          "score": 1,
+          "finishDate": 1525441931000
+        },
+        {
+          "player": 42,
+          "score": 0,
+          "finishDate": 1525441931000
+        }
       ]
     }
   ],
-  "hits": {
-    "self": [
-      {
-        "turn": 1,
-        "hitLocations": [
-          "C0",
-          "C1",
-          "C2"
+  "scores": [
+    {
+      "playerId": 2,
+      "playerName": "berenguer.pou.llavina@gmail.com",
+      "won": 10,
+      "tied": 20,
+      "lost": 15
+    },
+    {
+      "playerId": 32,
+      "playerName": "mimi@gmail.com",
+      "won": 13,
+      "tied": 16,
+      "lost": 19
+    },
+    {
+      "playerId": 42,
+      "playerName": "mapplejoin@gmail.com",
+      "won": 11,
+      "tied": 12,
+      "lost": 13
+    }
+  ],
+  "gameviews": [
+    {
+      "id": 22,
+      "created": 1525441591000,
+      "gameState": "PLAY",
+      "gamePlayers": [
+        {
+          "id": 32,
+          "player": {
+            "id": 2,
+            "email": "berenguer.pou.llavina@gmail.com"
+          },
+          "joinDate": 1525441591000
+        },
+        {
+          "id": 42,
+          "player": {
+            "id": 32,
+            "email": "mimi@gmail.com"
+          },
+          "joinDate": 1525441625000
+        }
+      ],
+      "ships": [
+        {
+          "shipType": "carrier",
+          "shipLocations": [
+            "B5",
+            "B6",
+            "B7",
+            "B8",
+            "B9"
+          ],
+          "direction": "hor",
+          "id": 1
+        },
+        {
+          "shipType": "battleship",
+          "shipLocations": [
+            "C0",
+            "C1",
+            "C2",
+            "C3"
+          ],
+          "direction": "hor",
+          "id": 2
+        },
+        {
+          "shipType": "destroyer",
+          "shipLocations": [
+            "E0",
+            "E1",
+            "E2"
+          ],
+          "direction": "hor",
+          "id": 3
+        },
+        {
+          "shipType": "submarine",
+          "shipLocations": [
+            "G0",
+            "G1",
+            "G2"
+          ],
+          "direction": "hor",
+          "id": 4
+        },
+        {
+          "shipType": "patrolboat",
+          "shipLocations": [
+            "I0",
+            "I1"
+          ],
+          "direction": "hor",
+          "id": 5
+        }
+      ],
+      "salvoes": [
+        {
+          "turn": 1,
+          "player": 2,
+          "locations": [
+            "J3",
+            "J2",
+            "J1"
+          ]
+        },
+        {
+          "turn": 2,
+          "player": 2,
+          "locations": [
+            "H2",
+            "H1",
+            "I2"
+          ]
+        },
+        {
+          "turn": 1,
+          "player": 32,
+          "locations": [
+            "A1",
+            "B1",
+            "A0"
+          ]
+        },
+        {
+          "turn": 2,
+          "player": 32,
+          "locations": [
+            "D0",
+            "E0",
+            "F0"
+          ]
+        }
+      ],
+      "hits": {
+        "self": [
+          {
+            "turn": 1,
+            "hitLocations": [
+              "C0",
+              "C1",
+              "C2"
+            ],
+            "damages": {
+              "carrierHits": 0,
+              "battleshipHits": 3,
+              "submarineHits": 0,
+              "destroyerHits": 0,
+              "patrolboatHits": 0
+            },
+            "accumulatedDamages": {
+              "carrier": 0,
+              "battleship": 1,
+              "submarine": 0,
+              "destroyer": 2,
+              "patrolboat": 0
+            },
+            "missed": 0
+          },
+          {
+            "turn": 2,
+            "hitLocations": [
+              "A3",
+              "B3",
+              "C6"
+            ],
+            "damages": {
+              "carrierHits": 0,
+              "battleshipHits": 0,
+              "submarineHits": 0,
+              "destroyerHits": 0,
+              "patrolboatHits": 0
+            },
+            "accumulatedDamages": {
+              "carrier": 0,
+              "battleship": 1,
+              "submarine": 0,
+              "destroyer": 2,
+              "patrolboat": 0
+            },
+            "missed": 3
+          },
+          {
+            "turn": 3,
+            "hitLocations": [
+              "B7",
+              "E2",
+              "I0"
+            ],
+            "damages": {
+              "carrierHits": 1,
+              "battleshipHits": 0,
+              "submarineHits": 0,
+              "destroyerHits": 1,
+              "patrolboatHits": 1
+            },
+            "accumulatedDamages": {
+              "carrier": 1,
+              "battleship": 1,
+              "submarine": 0,
+              "destroyer": 3,
+              "patrolboat": 1
+            },
+            "missed": 0
+          }
         ],
-        "damages": {
-          "carrierHits": 0,
-          "battleshipHits": 3,
-          "submarineHits": 0,
-          "destroyerHits": 0,
-          "patrolboatHits": 0
-        },
-        "accumulatedDamages": {
-          "carrier": 0,
-          "battleship": 1,
-          "submarine": 0,
-          "destroyer": 2,
-          "patrolboat": 0
-        },
-        "missed": 0
-      },
-      {
-        "turn": 2,
-        "hitLocations": [
-          "A3",
-          "B3",
-          "C6"
-        ],
-        "damages": {
-          "carrierHits": 0,
-          "battleshipHits": 0,
-          "submarineHits": 0,
-          "destroyerHits": 0,
-          "patrolboatHits": 0
-        },
-        "accumulatedDamages": {
-          "carrier": 0,
-          "battleship": 1,
-          "submarine": 0,
-          "destroyer": 2,
-          "patrolboat": 0
-        },
-        "missed": 3
-      },
-      {
-        "turn": 3,
-        "hitLocations": [
-          "B7",
-          "E2",
-          "I0"
-        ],
-        "damages": {
-          "carrierHits": 1,
-          "battleshipHits": 0,
-          "submarineHits": 0,
-          "destroyerHits": 1,
-          "patrolboatHits": 1
-        },
-        "accumulatedDamages": {
-          "carrier": 1,
-          "battleship": 1,
-          "submarine": 0,
-          "destroyer": 3,
-          "patrolboat": 1
-        },
-        "missed": 0
+        "opponent": [
+          {
+            "turn": 1,
+            "hitLocations": [
+              "D1",
+              "F1",
+              "H3"
+            ],
+            "damages": {
+              "carrierHits": 0,
+              "battleshipHits": 1,
+              "submarineHits": 0,
+              "destroyerHits": 2,
+              "patrolboatHits": 0
+            },
+            "accumulatedDamages": {
+              "carrier": 0,
+              "battleship": 1,
+              "submarine": 0,
+              "destroyer": 2,
+              "patrolboat": 0
+            },
+            "missed": 0
+          },
+          {
+            "turn": 2,
+            "hitLocations": [
+              "D4",
+              "F4",
+              "H4"
+            ],
+            "damages": {
+              "carrierHits": 0,
+              "battleshipHits": 0,
+              "submarineHits": 0,
+              "destroyerHits": 0,
+              "patrolboatHits": 0
+            },
+            "accumulatedDamages": {
+              "carrier": 0,
+              "battleship": 1,
+              "submarine": 0,
+              "destroyer": 2,
+              "patrolboat": 0
+            },
+            "missed": 3
+          },
+          {
+            "turn": 3,
+            "hitLocations": [
+              "J6",
+              "J7",
+              "J8"
+            ],
+            "damages": {
+              "carrierHits": 1,
+              "battleshipHits": 0,
+              "submarineHits": 0,
+              "destroyerHits": 1,
+              "patrolboatHits": 1
+            },
+            "accumulatedDamages": {
+              "carrier": 1,
+              "battleship": 1,
+              "submarine": 0,
+              "destroyer": 3,
+              "patrolboat": 1
+            },
+            "missed": 0
+          }
+        ]
       }
-    ],
-    "opponent": [
-      {
-        "turn": 1,
-        "hitLocations": [
-          "D1",
-          "F1",
-          "H3"
-        ],
-        "damages": {
-          "carrierHits": 0,
-          "battleshipHits": 1,
-          "submarineHits": 0,
-          "destroyerHits": 2,
-          "patrolboatHits": 0
-        },
-        "accumulatedDamages": {
-          "carrier": 0,
-          "battleship": 1,
-          "submarine": 0,
-          "destroyer": 2,
-          "patrolboat": 0
-        },
-        "missed": 0
-      },
-      {
-        "turn": 2,
-        "hitLocations": [
-          "D4",
-          "F4",
-          "H4"
-        ],
-        "damages": {
-          "carrierHits": 0,
-          "battleshipHits": 0,
-          "submarineHits": 0,
-          "destroyerHits": 0,
-          "patrolboatHits": 0
-        },
-        "accumulatedDamages": {
-          "carrier": 0,
-          "battleship": 1,
-          "submarine": 0,
-          "destroyer": 2,
-          "patrolboat": 0
-        },
-        "missed": 3
-      },
-      {
-        "turn": 3,
-        "hitLocations": [
-          "J6",
-          "J7",
-          "J8"
-        ],
-        "damages": {
-          "carrierHits": 1,
-          "battleshipHits": 0,
-          "submarineHits": 0,
-          "destroyerHits": 1,
-          "patrolboatHits": 1
-        },
-        "accumulatedDamages": {
-          "carrier": 1,
-          "battleship": 1,
-          "submarine": 0,
-          "destroyer": 3,
-          "patrolboat": 1
-        },
-        "missed": 0
-      }
-    ]
-  }
-}
-
+    }
+  ]
 }
